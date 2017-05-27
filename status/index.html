@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            var ws = new WebSocket("ws://127.0.0.1:8080/ws");
+            ws.onopen = function(evt) {
+                console.log("Connection open...");
+                ws.send("Hello");
+            }
+            ws.onmessage = function(evt) {
+                console.log(evt.data);
+            }
+
+            ws.onclose = function(evt) {
+                console.log(1111111);
+            }
+            
+            function sendMessage(data) {
+                ws.send(data)
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
